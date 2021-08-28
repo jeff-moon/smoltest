@@ -128,6 +128,42 @@
 #define EXPECT_EQ_FLOAT(val1, val2) if (!smoltest_eqfloat(__FILENAME__, __LINE__, val1, val2)) ++smoltest_error_count
 
 /**
+ * @brief Asserts two strings are equal and returns if assertion fails.
+ *
+ */
+#define ASSERT_EQ_STRING(val1, val2) if (!smoltest_eqstring(__FILENAME__, __LINE__, val1, val2)) return ++smoltest_error_count
+
+/**
+ * @brief Expects two strings are equal and returns if assertion fails.
+ *
+ */
+#define EXPECT_EQ_STRING(val1, val2) if (!smoltest_eqstring(__FILENAME__, __LINE__, val1, val2)) ++smoltest_error_count
+
+/**
+ * @brief Asserts a pointer to be null
+ * 
+ */
+#define ASSERT_NULL(ptr) if (!smoltest_null(__FILENAME__, __LINE__, ptr)) return ++smoltest_error_count
+
+/**
+ * @brief Expects a pointer to be null
+ * 
+ */
+#define EXPECT_NULL(ptr) if (!smoltest_null(__FILENAME__, __LINE__, ptr)) ++smoltest_error_count
+
+/**
+ * @brief Asserts a pointer to be not null
+ * 
+ */
+#define ASSERT_NOT_NULL(ptr) if (!smoltest_notnull(__FILENAME__, __LINE__, ptr)) return ++smoltest_error_count
+
+/**
+ * @brief Expects a pointer to be not null
+ * 
+ */
+#define EXPECT_NOT_NULL(ptr) if (!smoltest_notnull(__FILENAME__, __LINE__, ptr)) ++smoltest_error_count
+
+/**
  * @brief Registers a test function with the smoltest system. Use REGISTER() instead.
  * 
  * @param f The test function to register

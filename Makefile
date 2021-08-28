@@ -9,4 +9,7 @@ OBJS := $(patsubst %.c,%.o,$(SRCS))
 
 all:$(OBJS)
 	ar -rcs libsmoltest.a $(OBJS)
+
+clean:
+	rm -f libsmoltest.a
 	rm src/*.o

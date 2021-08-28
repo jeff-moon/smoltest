@@ -164,3 +164,58 @@ int smoltest_eqdouble(const char *filename, int line, double val1, double val2) 
 
     return eq;
 }
+
+/**
+ * @brief Performs equality between strings
+ * 
+ * @param filename The filename in which the equality check was performed
+ * @param line The line number on which the equality check was performed
+ * @param val1 Value 1 to check
+ * @param val2 Value 2 to check
+ * @return int where 1 = equal and 0 = not equal
+ */
+int smoltest_eqstring(const char *filename, int line, const char *val1, const char *val2) {
+    int eq = !strcmp(val1, val2);
+
+    if (!eq) {
+        printf("[ ASSERT FAIL ] %s:%d: %s != %s\n", filename, line, val1, val2);
+    }
+
+    return eq;
+}
+
+/**
+ * @brief Performs a null check
+ * 
+ * @param filename The filename in which the equality check was performed
+ * @param line The line number on which the equality check was performed
+ * @param ptr The pointer to null check
+ * @return int where 1 = NULL and 0 = not NULL
+ */
+int smoltest_null(const char *filename, int line, const void *ptr) {
+    int eq = (ptr == NULL);
+
+    if (!eq) {
+        printf("[ ASSERT FAIL ] %s:%d: Pointer is not NULL\n", filename, line);
+    }
+
+    return eq;
+}
+
+/**
+ * @brief Performs a null check
+ * 
+ * @param filename The filename in which the equality check was performed
+ * @param line The line number on which the equality check was performed
+ * @param ptr The pointer to null check
+ * @return int where 1 = not NULL and 0 = NULL
+ */
+int smoltest_notnull(const char *filename, int line, const void *ptr) {
+    int eq = (ptr != NULL);
+
+    if (!eq) {
+        printf("[ ASSERT FAIL ] %s:%d: Pointer is NULL\n", filename, line);
+    }
+
+    return eq;
+}
