@@ -17,13 +17,21 @@
  * @brief Defines a smoltest suite test
  * 
  */
-#define SMOLTEST(group, test) int FUNC_NAME(group, test) (void) { int smoltest_error_count = 0;
+#define SMOLTEST(group, test) int FUNC_NAME(group, test) (void) { \
+                                                int smoltest_error_count = 0; \
+                                                STEP(RUNNING TEST -> group:test);
 
 /**
  * @brief Ends the smoltest suite test
  * 
  */
 #define ENDTEST() } return smoltest_error_count
+
+/**
+ * @brief STEP
+ * 
+ */
+#define STEP(step) (printf("[SMOLTEST - STEP] %s\n", #step));
 
 /**
  * @brief Registers a smoltest suite test
